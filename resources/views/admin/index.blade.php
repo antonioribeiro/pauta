@@ -15,13 +15,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Link Notes</label>
+                                <label for="exampleInputEmail1">Link no Lotus Notes</label>
                                 <input v-model="notesLink" class="form-control" placeholder="">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">
-                                    Link Portal
+                                    Link no Portal
 
                                     <a href="#" class="copy" data-clipboard-target="#siteLink">
                                         (copiar)
