@@ -1,11 +1,11 @@
 <?php
 
-Route::get('/', function () {
-    return redirect()->route('admin.index');
-});
-
 Auth::routes();
 
-Route::get('/home', 'Home@index')->name('home');
+/// No Auth
+require __DIR__ . '/no-auth/api.php';
+require __DIR__ . '/no-auth/web.php';
 
-Route::get('/admin', 'Admin@index')->name('admin.index');
+///// Auth
+require __DIR__ . '/auth/api.php';
+require __DIR__ . '/auth/web.php';

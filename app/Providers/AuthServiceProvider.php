@@ -25,6 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('appUser', function ($user) {
+            return true;
+        });
+
+        Gate::define('congressman:show', function ($user, $congressman) {
+            if (blank($user->departament)) {
+                return false;
+            }
+
+            return $congressman->departament->id == $user->departament->id;
+        });
     }
 }

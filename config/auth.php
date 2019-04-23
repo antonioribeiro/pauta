@@ -1,10 +1,11 @@
 <?php
 
 return [
+    'timeout' => env('AUTH_TIMEOUT', 2),
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Defaults
+    | Service Defaults
     |--------------------------------------------------------------------------
     |
     | This option controls the default authentication "guard" and password
@@ -20,7 +21,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Guards
+    | Service Guards
     |--------------------------------------------------------------------------
     |
     | Next, you may define every authentication guard for your application.
@@ -68,7 +69,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Data\Models\User::class,
         ],
 
         // 'users' => [
@@ -99,5 +100,4 @@ return [
             'expire' => 60,
         ],
     ],
-
 ];
