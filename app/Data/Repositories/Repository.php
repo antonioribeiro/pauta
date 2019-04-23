@@ -322,6 +322,7 @@ abstract class Repository
             $query instanceof QueryBuilder ||
             $query instanceof EloquentBuilder
         ) {
+            db_listen();
             foreach ($this->new()->getOrderBy() as $field => $direction) {
                 $query->orderBy($field, $direction);
             }

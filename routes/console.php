@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use App\Data\Repositories\Users;
+use App\Services\DataSync\Service as DataSyncService;
 
 Artisan::command('pauta:users:role:assign {role} {email}', function (
     $role,
@@ -42,3 +43,8 @@ Artisan::command('pauta:users:create {email} {name}', function ($email, $name) {
 
     $this->info("User {$user->email} created");
 })->describe('Create user');
+
+Artisan::command('pauta:sync:roles', function () {
+    $this->info('Creating roles and abilities...');
+    app(DataSyncService::class)->roles();
+})->describe('Create roles');

@@ -9,5 +9,6 @@ Route::group(
     function () {
         require __DIR__ . '/api/admin.php';
         require __DIR__ . '/api/users.php';
+        require __DIR__ . '/api/sessions.php';
     }
 );

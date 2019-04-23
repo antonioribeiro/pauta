@@ -46,13 +46,6 @@ class Service
         }
     }
 
-    public function departaments()
-    {
-        collect(config('departments.list'))->each(function ($department) {
-            app(Departaments::class)->firstOrCreate($department);
-        });
-    }
-
     public function roles()
     {
         collect(config('roles.roles'))->each(function ($role) {

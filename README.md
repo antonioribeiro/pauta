@@ -71,37 +71,18 @@ alias a="php artisan"
 
 a docigp:sync:parties 
 a docigp:sync:congressmen
-a docigp:sync:departaments
 a docigp:sync:roles
-a docigp:budget:generate
-a docigp:role:assign administrator afaria@alerj.rj.gov.br 
-a storage:link
 ```
 
 ### Para debugar
  
 ```
-- Budget de Fevereiro e Março
-a migrate:fresh -vvv --force; a docigp:sync:parties -vvv; a docigp:sync:congressmen -vvv; a docigp:sync:departaments; a docigp:sync:roles; a docigp:budget:generate 2019-02-01; a docigp:budget:generate 2019-03-01;                                a db:seed -vvv --force;
-- Budget de Fevereiro, Março e Abril
-a migrate:fresh -vvv --force; a docigp:sync:parties -vvv; a docigp:sync:congressmen -vvv; a docigp:sync:departaments; a docigp:sync:roles; a docigp:budget:generate 2019-02-01; a docigp:budget:generate 2019-03-01; a docigp:budget:generate -vvv; a db:seed -vvv --force;
+a migrate:fresh --seed; a pauta:sync:roles
 ```
 
 ### Permissões
 
 ```
-Deputado (lançar / verificar / verificar o próprio lançamento / criar usuário)
-Chefe (lançar / verificar / verificar o próprio lançamento / criar usuário)
-Gestor (lançar / verificar / criar usuário)
-Assessor (visualizar)
-Lançador (lançar / editar)
-Verificador (verificar)
-
-Diretor (associar perfil de deputado / autorizar / publicar / publicar o que foi autorizado por ele / criar usuário)
-Financeiro (depositar)
-Assistente (autorizar / publicar / publicar o que foi autorizado por ele / criar usuário)
-Gestor (autorizar / publicar / criar usuário)
-Funcionário (visualizar)
-Autorizador (autorizar)
-Publicador (publicar)
+Administrador (tudo)
+Operador (lançar / verificar / verificar o próprio lançamento / criar usuário)
 ```

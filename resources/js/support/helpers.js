@@ -93,6 +93,10 @@ window.logout = () => {
 }
 
 window.clone = object => {
+    if (typeof object === 'undefined') {
+        return {}
+    }
+
     return JSON.parse(JSON.stringify(object))
 }
 

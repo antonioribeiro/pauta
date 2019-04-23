@@ -22,6 +22,7 @@ import * as mutations from './mutations'
 import admin from './modules/admin'
 import gate from './modules/gate'
 import environment from './modules/environment'
+import sessions from './modules/sessions'
 
 /**
  * State
@@ -42,6 +43,7 @@ let store = new Vuex.Store({
         admin,
         environment,
         gate,
+        sessions,
     },
 })
 

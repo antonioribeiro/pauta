@@ -99,11 +99,17 @@ export function mutateFilterSelect(context, payload) {
 }
 
 export function subscribeToModelEvents(context, payload) {
+    dd(context.state.model)
     if (context.state.model) {
         subscribePublicChannel(
             context.state.model.name + '.' + payload.id,
             '.App\\Events\\' + context.state.model.class.singular + 'Updated',
             () => {
+                dd(
+                    '.App\\Events\\' +
+                        context.state.model.class.singular +
+                        'Updated',
+                )
                 loadDebounced(context)
             },
         )

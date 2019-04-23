@@ -1,5 +1,7 @@
 <?php
 
+use App\Data\Models\User;
+use App\Data\Models\Session;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         config(['broadcasting.default' => 'null']);
 
-        $this->call(UsersTableSeeder::class);
+        User::disableEvents();
+
+        factory(User::class, 50)->create();
+
+        factory(Session::class, 5)->create();
     }
 }
