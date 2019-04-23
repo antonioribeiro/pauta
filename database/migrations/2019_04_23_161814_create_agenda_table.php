@@ -15,6 +15,10 @@ class CreateAgendaTable extends Migration
     {
         Schema::create('agenda', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->date('date');
+            $table->bigInteger('session_type_id');
+
             $table->timestamps();
         });
     }
