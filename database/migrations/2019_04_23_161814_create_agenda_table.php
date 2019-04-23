@@ -17,6 +17,7 @@ class CreateAgendaTable extends Migration
             $table->bigIncrements('id');
 
             $table->date('date');
+            $table->time('time');
             $table->bigInteger('session_type_id');
 
             $table->timestamps();
