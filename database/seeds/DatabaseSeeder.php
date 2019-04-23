@@ -14,11 +14,5 @@ class DatabaseSeeder extends Seeder
         config(['broadcasting.default' => 'null']);
 
         $this->call(UsersTableSeeder::class);
-
-        $this->call(CongressmanTableSeeder::class);
-
-        $this->call(ProvidersTableSeeder::class);
-
-        $this->call(EntriesTableSeeder::class);
     }
 }

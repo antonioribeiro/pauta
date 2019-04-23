@@ -30,13 +30,7 @@ class User extends Authenticatable implements AuditableContract
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'username',
-        'congressman_id',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'username'];
 
     protected $orderBy = ['name' => 'asc'];
 
@@ -116,16 +110,6 @@ class User extends Authenticatable implements AuditableContract
         Bouncer::sync($this)->roles(
             BouncerRole::whereIn('id', $rolesToSync)->get()
         );
-    }
-
-    public function departament()
-    {
-        return $this->belongsTo(Departament::class);
-    }
-
-    public function congressman()
-    {
-        return $this->belongsTo(Congressman::class);
     }
 
     public function getAssignableRolesAttribute()

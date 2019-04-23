@@ -87,15 +87,4 @@ class Users extends Repository
 
         return $user;
     }
-
-    public function associateCongressmanWithUser($congressman_id, $request)
-    {
-        $this->model = $this->findUserByEmail($request['email']);
-
-        $this->model['congressman_id'] = $congressman_id;
-
-        $this->model->save();
-
-        return $this->model;
-    }
 }
