@@ -12,15 +12,26 @@
 
         <div class="form-group">
             <label for="notesLink">Link no Lotus Notes</label>
-            <input
-                v-model="notesLink"
-                class="form-control"
-                id="notesLink"
-                placeholder=""
-            />
+            <div class="input-group mb-3">
+                <input
+                    v-model="notesLink"
+                    class="form-control"
+                    id="notesLink"
+                />
+
+                <div class="input-group-append" v-if="notesLink">
+                    <button
+                        @click="clearNotesLink()"
+                        class="btn btn-danger"
+                        type="button"
+                    >
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-if="siteLink">
             <label for="siteLink">
                 Link no Portal (<a
                     href="#"
@@ -76,6 +87,14 @@ export default {
             }
 
             return ''
+        },
+    },
+
+    methods: {
+        clearNotesLink() {
+            this.notesLink = ''
+
+            document.getElementById('notesLink').focus()
         },
     },
 
