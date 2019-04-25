@@ -78,6 +78,7 @@ a docigp:sync:roles
  
 ```
 a migrate:fresh --seed; a pauta:sync:roles
+a pauta:users:create fcosta@alerj.rj.gov.br "Fábio Mattos da Costa"
 ```
 
 ### Permissões

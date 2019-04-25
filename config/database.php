@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pauta'),
 
     /*
     |--------------------------------------------------------------------------
@@ -59,13 +59,27 @@ return [
                 : [],
         ],
 
-        'pgsql' => [
+        'pauta' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_PAUTA_HOST', '127.0.0.1'),
+            'port' => env('DB_PAUTA_PORT', '5432'),
+            'database' => env('DB_PAUTA_DATABASE', 'forge'),
+            'username' => env('DB_PAUTA_USERNAME', 'forge'),
+            'password' => env('DB_PAUTA_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'docigp' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_DOCIGP_HOST', '127.0.0.1'),
+            'port' => env('DB_DOCIGP_PORT', '5432'),
+            'database' => env('DB_DOCIGP_DATABASE', 'forge'),
+            'username' => env('DB_DOCIGP_USERNAME', 'forge'),
+            'password' => env('DB_DOCIGP_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

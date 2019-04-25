@@ -8,6 +8,7 @@
         @set-per-page="perPage = $event"
         :collapsedLabel="collapsedLabel"
         :is-selected="selected.id !== null"
+        what="1"
     >
         <template slot="buttons">
             <button

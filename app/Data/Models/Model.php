@@ -60,3 +60,18 @@ abstract class Model extends Eloquent implements AuditableContract
     {
     }
 }
+
+//** tipos de discussao **
+//1a Discussão, 2a Discussão, Discussão Única
+//
+//** estados da proposição **
+//Será Discutida, Ficará Disponível para receber Emendas, Será votada
+//
+//** continuação **
+//Sim, Não
+//
+//** objetos de apreciação **
+//Emendas, Destaques, Proposição
+//
+//** regimes de tramitação **
+//Ordinária, Urgência, Especial
