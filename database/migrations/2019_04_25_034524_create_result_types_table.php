@@ -1,19 +1,24 @@
 <?php
 
-use App\Data\Models\SessionType;
+use App\Data\Models\ResultType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSessionTypesTable extends Migration
+class CreateResultTypesTable extends Migration
 {
     private function populate()
     {
-        SessionType::insert([
-            ['name' => 'Sessão Ordinária'],
-            ['name' => 'Sessão Extraordinária'],
-            ['name' => 'Reunião da Mesa Diretora e'],
-            ['name' => 'Reunião de Comissão'],
+        ResultType::insert([
+            [
+                'name' => 'Sanção',
+            ],
+            [
+                'name' => 'Veto Total',
+            ],
+            [
+                'name' => 'Veto Parcial',
+            ],
         ]);
     }
 
@@ -24,7 +29,7 @@ class CreateSessionTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('session_types', function (Blueprint $table) {
+        Schema::create('result_types', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('name');
@@ -42,6 +47,6 @@ class CreateSessionTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('session_types');
+        Schema::dropIfExists('result_types');
     }
 }

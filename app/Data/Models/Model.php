@@ -61,17 +61,45 @@ abstract class Model extends Eloquent implements AuditableContract
     }
 }
 
-//** tipos de discussao **
-//1a Discussão, 2a Discussão, Discussão Única
-//
-//** estados da proposição **
-//Será Discutida, Ficará Disponível para receber Emendas, Será votada
-//
-//** continuação **
-//Sim, Não
-//
-//** objetos de apreciação **
-//Emendas, Destaques, Proposição
-//
-//** regimes de tramitação **
-//Ordinária, Urgência, Especial
+###Tipos de discussao
+- 1a Discussão
+- 2a Discussão
+- Discussão Única
+
+###Estados da proposição
+- Será Discutida
+- Disponível para receber Emendas
+- Será votada
+
+###Tipos de Objetos para apreciação
+- Emendas
+- Destaques
+- Proposição
+
+###Regimes de tramitação
+- Ordinária
+- Urgência
+- Especial
+
+###Tipos de resultado
+- Sanção
+- Veto Total
+- Veto Parcial
+
+###Tipo de projeto de lei
+- Resolução
+- Lei Complementar
+- Lei Ordinária
+- Decreto Legislativo
+- Emenda Constitucional
+- Indicação Legislativa
+
+###Tipos de pareceres
+- Favorável
+- Favorável com emendas
+- Favorável com substitutivo
+- Pela constitucionalidade
+- Pela Constitucionalidade com emendas
+- Contrário
+- Contrário ao substitutivo
+- Pela Inconstitucionalidade
