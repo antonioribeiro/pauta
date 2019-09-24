@@ -52,16 +52,23 @@ class LinkGenerator extends Controller
      */
     protected function downloadFile($data): \Symfony\Component\HttpFoundation\StreamedResponse
     {
-        return response()->streamDownload(function () {
+        return response()->streamDownload(function () use ($data) {
             echo $data['link'];
         }, $data['code'] . '.txt');
+    }
+
+    protected function encodeUrl($url)
+    {
+        preg_match('/.*alerjln1.alerj.rj.gov.br([^?]*)/', $url, $matches);
+
+        return base64_encode($matches[1]);
     }
 
     public function generateLink()
     {
         return sprintf('http://www3.alerj.rj.gov.br/lotus_notes/default.asp?id=%s&url=%s',
             $this->id,
-            base64_encode($this->url)
+            $this->encodeUrl($this->url)
         );
     }
 
@@ -74,3 +81,8 @@ class LinkGenerator extends Controller
         return $this->downloadFile($data);
     }
 }
+
+// http://alerjln1.alerj.rj.gov.br/scpro1923.nsf/0c5bf5cde95601f903256caa0023131b/5952e182da73cd308325847a00600cdf?OpenDocument&Highlight=0,20190301314
+// http://www3.alerj.rj.gov.br/lotus_notes/default.asp?id=144&url=L3NjcHJvMTkyMy5uc2YvMGM1YmY1Y2RlOTU2MDFmOTAzMjU2Y2FhMDAyMzEzMWIvNTk1MmUxODJkYTczY2QzMDgzMjU4NDdhMDA2MDBjZGY/T3BlbkRvY3VtZW50JkhpZ2hsaWdodD0wLDIwMTkwMzAxMzE0P09wZW5Eb2N1bWVudCZFeHBhbmRWaWV3
+// http://www3.alerj.rj.gov.br/lotus_notes/default.asp?id=144&url=aHR0cDovL2FsZXJqbG4xLmFsZXJqLnJqLmdvdi5ici9zY3BybzE5MjMubnNmLzBjNWJmNWNkZTk1NjAxZjkwMzI1NmNhYTAwMjMxMzFiLzU5NTJlMTgyZGE3M2NkMzA4MzI1ODQ3YTAwNjAwY2RmP09wZW5Eb2N1bWVudA==
+// http://alerjln1.alerj.rj.gov.br/scpro1923.nsf/0c5bf5cde95601f903256caa0023131b/5952e182da73cd308325847a00600cdf?OpenDocument
